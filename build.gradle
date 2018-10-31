@@ -16,7 +16,9 @@ repositories {
 }
 
 dependencies {
+    compile group: 'org.eclipse.jetty', name: 'jetty-webapp', version: '9.4.12.v20180830'
     compile group: 'com.h2database', name: 'h2', version: '1.4.197'
+    compile group: 'org.eclipse.jetty', name: 'jetty-server', version: '9.4.12.v20180830'
     compile group: 'commons-dbutils', name: 'commons-dbutils', version: '1.7'
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.7'
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.7'

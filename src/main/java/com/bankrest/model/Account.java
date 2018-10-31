@@ -1,18 +1,38 @@
 package com.bankrest.model;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
-
 import java.math.BigDecimal;
 
-@Data
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
-@RequiredArgsConstructor
+
 public class Account {
     private long id;
     private final long userId;
     private final BigDecimal balance;
     private final String currencyCode;
-  }
+
+    public Account(long id, long userId, BigDecimal balance, String currencyCode) {
+        this.id = id;
+        this.userId = userId;
+        this.balance = balance;
+        this.currencyCode = currencyCode;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public String getCurrencyCode() {
+        return currencyCode;
+    }
+}

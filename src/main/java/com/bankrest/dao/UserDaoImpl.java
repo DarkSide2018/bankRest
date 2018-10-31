@@ -44,7 +44,6 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> getAllUsers() {
-
         ResultSet rs = null;
         List<User> users = new ArrayList<User>();
         try (Connection conn = H2DaoFactory.getConnection();

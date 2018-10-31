@@ -5,11 +5,13 @@ import com.bankrest.service.ScoreService;
 import com.bankrest.util.AppManager;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
 @WebServlet(name = "AccountServlet", urlPatterns = {"/account"}, loadOnStartup = 1)
 public class AccountServlet extends HttpServlet {
     private ObjectMapper objectMapper = new ObjectMapper();

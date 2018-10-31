@@ -1,8 +1,10 @@
 package com.bankrest.servlet;
 
 import com.bankrest.dao.BankDao;
+import com.bankrest.dao.H2DaoFactory;
 import com.bankrest.model.UserTransaction;
 import com.bankrest.util.AppManager;
+
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +15,6 @@ import java.math.BigDecimal;
 
 @WebServlet(name = "BankServlet", urlPatterns = {"/bank"}, loadOnStartup = 1)
 public class BankServlet extends HttpServlet {
-
     private final BankDao bankService;
 
     public BankServlet() {

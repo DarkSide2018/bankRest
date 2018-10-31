@@ -35,6 +35,7 @@ public class AppManager {
         return scoreService;
     }
     static {
+
         H2DaoFactory.populateTestData();
     }
 }
