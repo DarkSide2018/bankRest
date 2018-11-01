@@ -1,16 +1,17 @@
 package com.bankrest.dao;
 
-import com.bankrest.dao.interFaces.ScoreDao;
+import com.bankrest.dao.interFaces.AccountDao;
 import com.bankrest.model.Account;
 
+import javax.inject.Singleton;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-public class ScoreDaoImpl implements ScoreDao {
+@Singleton
+public class AccountDaoImpl implements AccountDao {
     private static final String SELECT_BY_ID = "SELECT * FROM Score WHERE id=?";
     private final static String UPDATE = "UPDATE Score SET userID = ?,balance=?,currencyCode=? WHERE ID=? ";
     private static final String GET_ALL = "SELECT * FROM Score";

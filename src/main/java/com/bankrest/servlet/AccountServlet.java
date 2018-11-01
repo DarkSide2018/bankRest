@@ -1,10 +1,9 @@
 package com.bankrest.servlet;
 
 import com.bankrest.model.Account;
-import com.bankrest.service.ScoreService;
-import com.bankrest.util.AppManager;
+import com.bankrest.service.AcountService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+import com.google.inject.Inject;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,10 +14,11 @@ import java.io.IOException;
 @WebServlet(name = "AccountServlet", urlPatterns = {"/account"}, loadOnStartup = 1)
 public class AccountServlet extends HttpServlet {
     private ObjectMapper objectMapper = new ObjectMapper();
-    private final ScoreService scoreService;
 
-    public AccountServlet() {
-        this.scoreService = AppManager.getScoreService();
+    private final AcountService scoreService;
+    @Inject
+    public AccountServlet(AcountService scoreService) {
+       this.scoreService = scoreService;
     }
 
     @Override

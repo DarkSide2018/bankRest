@@ -9,14 +9,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
 public class BankDao {
 
     private final static String UPDATE_ACC_BALANCE = "UPDATE Score SET balance = ? WHERE id = ? ";
     private final static String LOCK_ACC_BY_ID = "SELECT * FROM Score WHERE id = ? FOR UPDATE";
 
 
-    public void transferMoney(UserTransaction userTransaction) throws SQLException {
+    public synchronized void transferMoney(UserTransaction userTransaction) throws SQLException {
         Connection conn = null;
         PreparedStatement lockStmt = null;
         PreparedStatement updateStmt = null;

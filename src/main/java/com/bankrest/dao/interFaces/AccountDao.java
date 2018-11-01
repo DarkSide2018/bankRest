@@ -4,7 +4,7 @@ import com.bankrest.model.Account;
 
 import java.util.List;
 
-public interface ScoreDao {
+public interface AccountDao {
     Account getScoreById(long scoreId);
 
     List<Account> getScoreByCurrencyCode(String code);

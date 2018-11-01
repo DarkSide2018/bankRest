@@ -4,6 +4,7 @@ import com.bankrest.dao.interFaces.UserDao;
 import com.bankrest.model.User;
 
 
+import javax.inject.Singleton;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Singleton
 public class UserDaoImpl implements UserDao {
 
     private final static String GET_BY_ID = "SELECT * FROM USER WHERE ID=?";
