@@ -3,19 +3,20 @@ package com.bankrest.dao;
 import com.bankrest.model.Account;
 import com.bankrest.model.UserTransaction;
 
+import javax.inject.Singleton;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+@Singleton
 public class BankDao {
 
     private final static String UPDATE_ACC_BALANCE = "UPDATE Score SET balance = ? WHERE id = ? ";
     private final static String LOCK_ACC_BY_ID = "SELECT * FROM Score WHERE id = ? FOR UPDATE";
 
 
-    public synchronized void transferMoney(UserTransaction userTransaction) throws SQLException {
+    public void transferMoney(UserTransaction userTransaction) throws SQLException {
         Connection conn = null;
         PreparedStatement lockStmt = null;
         PreparedStatement updateStmt = null;
@@ -25,6 +26,7 @@ public class BankDao {
         try {
             conn = H2DaoFactory.getConnection();
             conn.setAutoCommit(false);
+            conn.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
             lockStmt = conn.prepareStatement(LOCK_ACC_BY_ID);
             lockStmt.setLong(1, userTransaction.getFromScoreId());
             rs = lockStmt.executeQuery();

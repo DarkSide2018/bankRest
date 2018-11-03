@@ -4,8 +4,7 @@ import com.bankrest.util.Util;
 import org.apache.commons.dbutils.DbUtils;
 import org.h2.tools.RunScript;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -18,20 +17,18 @@ public class H2DaoFactory {
     private static final String dbPassword = Util.getStringProperty("dbPassword");
     private static Logger logger = Logger.getLogger(Thread.currentThread().getStackTrace()[0].getClass().getName());
 
-    public H2DaoFactory() {
+    static {
         DbUtils.loadDriver(dbDriver);
     }
-
     public static void populateTestData() {
         logger.info("Populating Test User Table and data ..... ");
-
+        File file = new File("test.txt");
+        logger.info("test path is^ " + file.getAbsolutePath());
         try (Connection conn = H2DaoFactory.getConnection()) {
-            RunScript.execute(conn, new FileReader("src/main/resources/populateDB.sql"));
+            final InputStream fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("populateDB.sql");
+            RunScript.execute(conn, new InputStreamReader(fis));
         } catch (SQLException e) {
             logger.warning("populateTestData(): Error populating user data: ");
-
-        } catch (FileNotFoundException e) {
-            logger.warning("populateTestData(): Error finding test script file ");
         }
     }
 

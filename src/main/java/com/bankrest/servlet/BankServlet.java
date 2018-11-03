@@ -2,7 +2,7 @@ package com.bankrest.servlet;
 
 import com.bankrest.dao.BankDao;
 import com.bankrest.model.UserTransaction;
-import com.google.inject.Inject;
+import com.bankrest.util.AppManager;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,10 +14,10 @@ import java.math.BigDecimal;
 @WebServlet(name = "BankServlet", urlPatterns = {"/bank"}, loadOnStartup = 1)
 public class BankServlet extends HttpServlet {
 
-    private final BankDao bankService;
-    @Inject
-    public BankServlet(BankDao bankService) {
-        this.bankService = bankService;
+    private BankDao bankDao;
+
+    public BankServlet() {
+        this.bankDao = AppManager.getInjector().getInstance(BankDao.class);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class BankServlet extends HttpServlet {
             String currency = req.getParameter("currency");
             String amount = req.getParameter("amount");
             UserTransaction userTransaction = new UserTransaction(currency, new BigDecimal(amount), Long.valueOf(fromScore), Long.valueOf(toScore));
-            bankService.transferMoney(userTransaction);
+            bankDao.transferMoney(userTransaction);
             resp.getWriter().println("successTransfer");
         } catch (Exception e) {
 
