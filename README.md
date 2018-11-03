@@ -7,6 +7,7 @@ you need Java 8
 
 2. go to http://localhost:8085/bankRestApp
 
-HTTP METHOD	| PATH	| USAGE
-GET	 | /account?accountID={accountID}	| get account by id
-POST | /bank?fromAccount={accountID}&toAccount={accountID}&currency={currencyCode}&amount={amount}	| transaction between 2 user accounts
+|HTTP METHOD	| PATH	| USAGE |
+| -----------| ------ | ------  |
+|GET	 | /account?accountID={accountID}	| get account by id |
+|POST | /bank?fromAccount={accountID}&toAccount={accountID}&currency={currencyCode}&amount={amount}	| transaction between 2 user accounts |
