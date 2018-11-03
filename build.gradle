@@ -14,7 +14,10 @@ repositories {
     mavenCentral()
     jcenter()
 }
-
+gretty {
+    httpPort = 8085
+    contextPath = '/bankRestApp'
+}
 dependencies {
     compile group: 'org.eclipse.jetty', name: 'jetty-webapp', version: '9.4.12.v20180830'
     compile group: 'com.h2database', name: 'h2', version: '1.4.197'
