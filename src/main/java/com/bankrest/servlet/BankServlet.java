@@ -25,7 +25,6 @@ public class BankServlet extends HttpServlet {
         try {
             String fromScore = req.getParameter("fromAccount");
             if (fromScore == null) throw new Exception("fromScore empty");
-            // analog for another fields
             String toScore = req.getParameter("toAccount");
             String currency = req.getParameter("currency");
             String amount = req.getParameter("amount");

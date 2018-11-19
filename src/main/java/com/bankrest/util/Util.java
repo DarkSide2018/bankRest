@@ -49,7 +49,6 @@ public class Util {
             }
         }
     }
-
     static {
         String configFileName = System.getProperty("application.properties");
 
@@ -57,6 +56,5 @@ public class Util {
             configFileName = "application.properties";
         }
         loadConfig(configFileName);
-
     }
 }

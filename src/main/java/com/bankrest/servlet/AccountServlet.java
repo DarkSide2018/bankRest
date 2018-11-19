@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
 
 @WebServlet(name = "AccountServlet", urlPatterns = {"/account"}, loadOnStartup = 1)
 public class AccountServlet extends HttpServlet {
@@ -27,6 +25,5 @@ public class AccountServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Account accountId = acountService.getScoreById(Long.valueOf(req.getParameter("accountId")));
         resp.getWriter().print(objectMapper.writeValueAsString(accountId));
-        Collections.sort(new ArrayList<String>());
     }
 }
