@@ -4,6 +4,7 @@ import com.bankrest.dao.BankDao;
 import com.bankrest.model.UserTransaction;
 import com.bankrest.util.AppManager;
 import com.bankrest.util.Loggable;
+import com.bankrest.util.LoggingTask;
 import com.google.inject.Inject;
 
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +16,7 @@ import java.math.BigDecimal;
 import java.util.logging.Logger;
 
 @WebServlet(name = "BankServlet", urlPatterns = {"/bank"}, loadOnStartup = 1)
-public class BankServlet extends HttpServlet implements Loggable {
+public class BankServlet extends HttpServlet {
     private static Logger log = Logger.getLogger(BankServlet.class.getName());
     private BankDao bankDao;
 
@@ -40,14 +41,7 @@ public class BankServlet extends HttpServlet implements Loggable {
     }
     @Inject
     public void init(){
-        while(true){
-            try {
-                Thread.sleep(4000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            logger().fine("logging in bankServlet");
-        }
-
+        Thread th = new LoggingTask("In BankServlet");
+        th.start();
     }
 }

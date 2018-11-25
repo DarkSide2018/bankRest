@@ -16,10 +16,10 @@ public class AppManager {
         H2DaoFactory.populateTestData();
         injector = Guice.createInjector(new BankModule());
         try {
-            ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
+
             LogManager.getLogManager()
                     .readConfiguration(
-                            contextClassLoader
+                            Thread.currentThread().getContextClassLoader()
                                     .getResourceAsStream("logging.properties"));
         } catch (IOException e) {
             System.err.println("cannot read logging properties");
