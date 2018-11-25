@@ -22,8 +22,6 @@ public class H2DaoFactory {
     }
     public static void populateTestData() {
         logger.info("Populating Test User Table and data ..... ");
-        File file = new File("test.txt");
-        logger.info("test path is^ " + file.getAbsolutePath());
         try (Connection conn = H2DaoFactory.getConnection()) {
             final InputStream fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("populateDB.sql");
             RunScript.execute(conn, new InputStreamReader(fis));

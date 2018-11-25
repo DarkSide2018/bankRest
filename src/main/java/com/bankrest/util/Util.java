@@ -1,6 +1,5 @@
 package com.bankrest.util;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -14,11 +13,8 @@ public class Util {
 
         } else {
             try {
-
                 final InputStream fis = Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);
                 properties.load(fis);
-
-            } catch (FileNotFoundException fne) {
 
             } catch (IOException ioe) {
 

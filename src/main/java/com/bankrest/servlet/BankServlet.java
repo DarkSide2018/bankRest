@@ -3,6 +3,8 @@ package com.bankrest.servlet;
 import com.bankrest.dao.BankDao;
 import com.bankrest.model.UserTransaction;
 import com.bankrest.util.AppManager;
+import com.bankrest.util.Loggable;
+import com.google.inject.Inject;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,10 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.logging.Logger;
 
 @WebServlet(name = "BankServlet", urlPatterns = {"/bank"}, loadOnStartup = 1)
-public class BankServlet extends HttpServlet {
-
+public class BankServlet extends HttpServlet implements Loggable {
+    private static Logger log = Logger.getLogger(BankServlet.class.getName());
     private BankDao bankDao;
 
     public BankServlet() {
@@ -34,5 +37,17 @@ public class BankServlet extends HttpServlet {
         } catch (Exception e) {
 
         }
+    }
+    @Inject
+    public void init(){
+        while(true){
+            try {
+                Thread.sleep(4000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            logger().fine("logging in bankServlet");
+        }
+
     }
 }
