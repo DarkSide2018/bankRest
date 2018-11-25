@@ -3,7 +3,6 @@ package com.bankrest.dao;
 import com.bankrest.dao.interFaces.UserDao;
 import com.bankrest.model.User;
 
-
 import javax.inject.Singleton;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

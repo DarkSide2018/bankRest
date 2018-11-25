@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 @Singleton
 public class AccountDaoImpl implements AccountDao {
     private static final String SELECT_BY_ID = "SELECT * FROM Score WHERE id=?";

@@ -3,7 +3,6 @@ package com.bankrest.servlet;
 import com.bankrest.dao.BankDao;
 import com.bankrest.model.UserTransaction;
 import com.bankrest.util.AppManager;
-import com.bankrest.util.Loggable;
 import com.bankrest.util.LoggingTask;
 import com.google.inject.Inject;
 
@@ -39,8 +38,9 @@ public class BankServlet extends HttpServlet {
 
         }
     }
+
     @Inject
-    public void init(){
+    public void init() {
         Thread th = new LoggingTask("In BankServlet");
         th.start();
     }

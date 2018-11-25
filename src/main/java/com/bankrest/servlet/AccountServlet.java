@@ -15,9 +15,8 @@ import java.io.IOException;
 
 @WebServlet(name = "AccountServlet", urlPatterns = {"/account"}, loadOnStartup = 1)
 public class AccountServlet extends HttpServlet {
-    private ObjectMapper objectMapper = new ObjectMapper();
-
     private final AcountService acountService;
+    private ObjectMapper objectMapper = new ObjectMapper();
 
     public AccountServlet() {
 
@@ -29,6 +28,7 @@ public class AccountServlet extends HttpServlet {
         Account accountId = acountService.getScoreById(Long.valueOf(req.getParameter("accountId")));
         resp.getWriter().print(objectMapper.writeValueAsString(accountId));
     }
+
     @Inject
     public void init() {
         Thread th = new Thread(new LoggingRunnableTask("AccountServlet point"));

@@ -1,6 +1,6 @@
 package com.bankrest.util;
 
-public class LoggingRunnableTask implements Runnable,Loggable{
+public class LoggingRunnableTask implements Runnable, Loggable {
     private String loggingPoint;
 
     public LoggingRunnableTask(String loggingPoint) {
@@ -9,7 +9,7 @@ public class LoggingRunnableTask implements Runnable,Loggable{
 
     @Override
     public void run() {
-        while (true){
+        while (true) {
             logger().info("runnable method in  :" + loggingPoint + " point");
             try {
                 Thread.sleep(6000);

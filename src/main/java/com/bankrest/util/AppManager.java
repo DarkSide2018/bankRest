@@ -12,11 +12,11 @@ import java.util.logging.LogManager;
 public class AppManager {
     private final static Injector injector;
     private static final AtomicLong counterThreads = new AtomicLong();
+
     static {
         H2DaoFactory.populateTestData();
         injector = Guice.createInjector(new BankModule());
         try {
-
             LogManager.getLogManager()
                     .readConfiguration(
                             Thread.currentThread().getContextClassLoader()

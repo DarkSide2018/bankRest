@@ -7,6 +7,14 @@ import java.util.Properties;
 public class Util {
     private static Properties properties = new Properties();
 
+    static {
+        String configFileName = System.getProperty("application.properties");
+
+        if (configFileName == null) {
+            configFileName = "application.properties";
+        }
+        loadConfig(configFileName);
+    }
 
     public static void loadConfig(String fileName) {
         if (fileName == null) {
@@ -44,13 +52,5 @@ public class Util {
                 return defaultVal;
             }
         }
-    }
-    static {
-        String configFileName = System.getProperty("application.properties");
-
-        if (configFileName == null) {
-            configFileName = "application.properties";
-        }
-        loadConfig(configFileName);
     }
 }

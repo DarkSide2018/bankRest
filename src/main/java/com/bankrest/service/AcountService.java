@@ -3,10 +3,8 @@ package com.bankrest.service;
 import com.bankrest.dao.interFaces.AccountDao;
 import com.bankrest.model.Account;
 import com.bankrest.util.Loggable;
-import com.bankrest.util.LoggingRunnableTask;
 import com.bankrest.util.LoggingTask;
 import com.google.inject.Inject;
-
 
 import javax.inject.Singleton;
 
