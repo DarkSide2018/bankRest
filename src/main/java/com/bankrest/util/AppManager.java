@@ -4,7 +4,11 @@ import com.bankrest.dao.H2DaoFactory;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.Properties;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.LogManager;
 
@@ -12,6 +16,9 @@ import java.util.logging.LogManager;
 public class AppManager {
     private final static Injector injector;
     private static final AtomicLong counterThreads = new AtomicLong();
+    public static final String FILE_HANDLER_PATTERN = "java.util.logging.FileHandler.pattern";
+
+    public static final String LOGGING_PROPERTIES = "logging.properties";
 
     static {
         H2DaoFactory.populateTestData();

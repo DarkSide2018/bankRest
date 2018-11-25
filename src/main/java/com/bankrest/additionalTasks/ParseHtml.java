@@ -2,11 +2,11 @@ package com.bankrest.additionalTasks;
 
 import java.io.File;
 import java.net.URL;
+import java.nio.file.Paths;
 
 public class ParseHtml {
     public static void main(String[] args) {
-        URL resource = Thread.currentThread().getContextClassLoader().getResource("test.html");
-        File file = new File(resource.getFile());
-        System.out.println(file.getName());
+        String s = Paths.get(".").toAbsolutePath().normalize().toString();
+        System.out.println(s);
     }
 }
