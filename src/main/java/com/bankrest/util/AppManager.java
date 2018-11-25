@@ -5,13 +5,13 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 
 import java.io.IOException;
-import java.net.URL;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.LogManager;
 
 
 public class AppManager {
     private final static Injector injector;
-
+    private static final AtomicLong counterThreads = new AtomicLong();
     static {
         H2DaoFactory.populateTestData();
         injector = Guice.createInjector(new BankModule());
@@ -24,6 +24,11 @@ public class AppManager {
         } catch (IOException e) {
             System.err.println("cannot read logging properties");
         }
+    }
+
+    public static long getCounterThreads() {
+        long l = counterThreads.incrementAndGet();
+        return l;
     }
 
     public static Injector getInjector() {
