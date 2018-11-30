@@ -2,13 +2,10 @@ package com.bankrest.additionalTasks;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jdk.swing.interop.SwingInterOpUtils;
 import lombok.SneakyThrows;
 
 import javax.json.*;
-import javax.json.stream.JsonParser;
 import java.io.StringReader;
-import java.util.stream.Collectors;
 
 public class ParseHtml {
     private static ObjectMapper mapper = new ObjectMapper();
