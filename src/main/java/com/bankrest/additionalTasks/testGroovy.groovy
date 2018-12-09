@@ -1,10 +1,16 @@
 package com.bankrest.additionalTasks
 
 
-FooTest h = new FooTest("ssss","gggg")
+def system = "cmd /c "
+def com = " git clone https://github.com/DarkSide2018/wildflyApp.git"
+def command = system + com
+def proc = command.execute()
 
-println(h.toString())
+println proc.text
 
-Bar bar = new Bar("tyt","iop")
-println(bar.toString())
+def a = "ghgh "
 
+def b = "asas"
+
+
+println(a + b)
